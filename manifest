@@ -1,0 +1,17 @@
+title=World on APP
+major_version=1
+minor_version=0
+build_version=1
+mm_icon_focus_hd=pkg:/images/336+210.jpg
+mm_icon_focus_sd=pkg:/images/248+140.jpg
+mm_icon_focus_fhd=pkg:/images/336+210.jpg
+bs_libs_required=roku_ads_lib
+splash_screen_fhd=pkg:/images/1920+1080.jpg
+splash_screen_hd=pkg:/images/1280+720.jpg
+splash_screen_sd=pkg:/images/1280+720.jpg
+splash_color=#121212
+ui_resolutions=Fhd
+splash_rsg_optimization=1
+supports_input_launch=1
+requires_widevine_drm=1
+requires_widevine_version=1.0

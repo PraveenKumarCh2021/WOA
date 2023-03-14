@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="menu" extends="Group" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <interface>
+       
+    </interface>
+
+    <script type="text/brightscript" uri="menu.brs" />
+     <script type="text/brightscript" uri="../../../../source/promise.brs" />
+     <script type="text/brightscript" uri="../../../../source/rsg_utils.brs" />
+
+    <children>
+
+        <Poster
+            id="logo"
+            width="200"
+            height="90"
+            loadDisplayMode="scaleToFit"
+            translation="[75,15]"
+            uri="pkg:/images/logo.png"/>
+
+         <RowList
+            id="MenuList"
+            itemComponentName="TextButtonItem"
+            numRows="1"
+            variableWidthItems="[true]"
+            rowFocusAnimationStyle = "floatingFocus"
+            vertFocusAnimationStyle="floatingFocus"
+            drawFocusFeedback="true"
+            drawFocusFeedbackOnTop="false"
+            focusBitmapUri="pkg:/images/menufocus.9.png"
+            rowitemSpacing="[[40,30]]"
+            rowItemSize = "[[150, 60]]"
+            translation="[337,35]"
+            itemSize = "[1400, 80]"/>     
+
+        <Label
+            id="test"
+            visible="false">
+            <Font role = "font" uri = "pkg:/images/fonts/arial-bold.ttf" size = "25" />
+        </Label>     
+    </children>
+</component>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="LoginScreen" extends="SGDEXComponent" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <interface>
+       
+    </interface>
+
+    <script type="text/brightscript" uri="LoginScreen.brs" />
+    <script type="text/brightscript" uri="../../../../source/promise.brs" />
+    <script type="text/brightscript" uri="../../../../source/RegistryUtil.brs" />
+    <script type="text/brightscript" uri="../../../../source/Utilities.brs" />
+
+    <children>
+ 
+
+        <LayoutGroup
+            id="loginWithCode"
+            visible="false"
+            layoutDirection="horiz"
+            itemSpacings="[80]"
+            translation="[80,150]"
+            vertAlignment="custom">
+            <LayoutGroup
+                horizAlignment="center"
+                itemSpacings="[80]"
+                translation="[0,100]">
+                <MultiStyleLabel
+                    id="usingWeb"
+                    width="800"
+                    wrap="true"
+                    horizAlign = "center"/>
+                <Rectangle
+                    id="SignRemoteButton"
+                    color="#FFFFFF"
+                    width="500"
+                    height="80">
+                    <Label
+                        width="500"
+                        height="80"
+                        horizAlign = "center"
+                        vertAlign = "center"
+                        text="Sign In From Remote"
+                        color="#000000"/>
+                </Rectangle>        
+            </LayoutGroup>    
+
+            <Rectangle
+                height="900"
+                width="2"/>
+
+            <LayoutGroup
+                horizAlignment="center"
+                itemSpacings="[50]"
+                translation="[0,100]">
+                <MultiStyleLabel
+                    id="usingMobile"
+                    width="800"
+                    wrap="true"
+                    horizAlign = "center"/>
+                <Poster
+                    id="qrCode"
+                    height="200"
+                    width="200"/>    
+            </LayoutGroup> 
+        </LayoutGroup>    
+
+
+        <LayoutGroup
+            id="loginWithEmail"
+            visible="false"
+            layoutDirection="horiz"
+            itemSpacings="[80]"
+            translation="[80,250]"
+            horizAlignment="custom">
+            <LayoutGroup
+                horizAlignment="center"
+                itemSpacings="[80]"
+                translation="[0,70]">
+                <Poster
+                    id="company_logo"
+                    height="250"
+                    width="250"/>
+                <MultiStyleLabel
+                    text="Watch Live TV, Movies, Shows, Entertainment Channels and much more on World BB TV"
+                    width="800"
+                    wrap="true"
+                    horizAlign = "center"/>   
+            </LayoutGroup>    
+
+            <FocusableLayoutGroup
+                horizAlignment="center"
+                itemSpacings="[80,30]"
+                translation="[0,70]">
+                <MultiStyleLabel
+                    text="Login to Your Account"
+                    width="800"
+                    wrap="true"
+                    horizAlign = "center"/>   
+                <CustomTextField
+                    id="username"
+                    width="512"
+                    focusable="true"
+                    hintText="Username"/>
+
+                <CustomTextField
+                    id="password"
+                    width="512"
+                    focusable="true"
+                    hintText="Password"
+                    secureMode="true"/>   
+
+                <AButton
+                    id="LoginSubmit"
+                    name="Submit"
+                    width="250"
+                    height="60"
+                    focusable="true"
+                    textColor="0xffffff"
+                    focusTextColor="0x0B2BC2"
+                    focusBackColor="0xffffff"
+                    backColor="0x0B2BC2"/>     
+
+                <AButton
+                    id="loginqrcodebutton"
+                    name="Login with QR Code and Text Code"
+                    width="600"
+                    height="60"
+                    focusable="true"
+                    textColor="0xffffff"
+                    focusTextColor="0x0B2BC2"
+                    focusBackColor="0xffffff"
+                    backColor="0x0B2BC2"/>     
+            </FocusableLayoutGroup>    
+
+        </LayoutGroup>       
+
+        <Timer
+            id="timer"
+            repeat="false"/>
+
+             
+    </children>
+</component>

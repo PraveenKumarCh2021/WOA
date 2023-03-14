@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+
+<component name = "PostTask" extends = "Task" >
+
+  <interface>
+        <field id = "input" type = "assocarray" />
+        <field id = "output" type = "string" />
+  </interface>
+
+  <script type="text/brightscript" uri="../../../source/fetch.brs" />
+  <script type="text/brightscript" uri="PostTask.brs" />
+   <script type="text/brightscript" uri="../../../source/RegistryUtil.brs" />
+   <script type="text/brightscript" uri="../../../source/Utilities.brs" />
+
+
+
+</component>

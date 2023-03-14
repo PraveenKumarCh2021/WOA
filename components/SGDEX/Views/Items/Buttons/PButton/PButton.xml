@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2018 Roku, Inc. All rights reserved. -->
+
+<component name="PButton" extends="Group" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <interface>
+        <field id="name" type="string" alias="title.text" />
+
+        <field id="width" type="integer" onChange="onWidthChanged" alias="back.width,title.width" />
+        <field id="height" type="integer" onChange="onHeightChanged" alias="back.height,title.height" />
+        <field id="uri" type="string" alias="back.height,title.height" />
+        <field id="buttonselected" type="boolean" alwaysNotify="true" />
+        <field id="selected" type="boolean" value="false" alwaysNotify="true" onChange="onSelected"/>
+        <field id="backColor" type="color" alwaysNotify="true" onChange="onColorChanged"/>
+        <field id="focusBackColor" type="color" alwaysNotify="true" onChange="onColorChanged"/>
+        <field id="textColor" type="color" alwaysNotify="true" onChange="onColorChanged"/>
+        <field id="focusTextColor" type="color" alwaysNotify="true" onChange="onColorChanged"/>
+    </interface>
+
+    <script type="text/brightscript" uri="PButton.brs" />
+
+    <children>
+       <Poster
+            id="back"
+            visible="false"
+            uri="pkg:/images/backborder.9.png">
+        </Poster>
+        
+        <Poster
+            id="back"
+            visible="false"
+            uri="pkg:/images/backborder.9.png">
+        </Poster>
+
+        <Label
+            id="title"
+            color="0xFFFFFF"
+            vertAlign="center"
+            horizAlign = "center"
+            maxLines="1">
+            <Font role = "font" uri = "pkg:/images/fonts/arial-bold.ttf" size = "30" />
+        </Label>
+    </children>
+</component>

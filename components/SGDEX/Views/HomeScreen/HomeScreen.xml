@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="HomeScreen" extends="SGDEXComponent" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <interface>
+       <field id="data" type="node" onChange="ondataChanged"/>
+    </interface>
+
+    <script type="text/brightscript" uri="HomeScreen.brs" />
+    <script type="text/brightscript" uri="../../../../source/promise.brs" />
+    <script type="text/brightscript" uri="../../../../source/Utilities.brs" />
+
+    <children> 
+
+         <ExtendRowList 
+            id="RowList"
+            translation="[0,130]"
+            itemComponentName = "EpisodeItem"
+            drawFocusFeedback = "true"
+            itemSize="[1920, 300]"
+            numRows="2"
+            itemSpacing="[10, 10]"
+            rowItemSpacing="[[30, 30]]"
+            showRowLabel= "[false,true]"
+            showRowCounter="false"
+            rowLabelOffset="[[74,20]]"
+            focusXOffset="[74]"/>
+
+        <LayoutGroup
+            id="detailsGroup"
+            translation="[125,350]"
+            itemSpacings="[20,20,40]"
+            visible="true">
+            <Label
+                id="title"> 
+                <Font role = "font" uri = "pkg:/images/fonts/arial-bold.ttf" size = "40" />
+            </Label>
+
+            <Label
+                id="submeta"> 
+                <Font role = "font" uri = "pkg:/images/fonts/arial.ttf" size = "22" />
+            </Label>
+
+            <MultiStyleLabel
+                width="1000"
+                wrap="true"
+                id="desc"
+                lineSpacing="2"
+                maxlines="3"/>     
+         </LayoutGroup>          
+
+        <Timer
+            id="slideTimer"
+            repeat="false"
+            duration="5"/>        
+
+        <LayoutGroup
+            translation="[960,540]"
+            horizAlignment="center"
+            vertAlignment="center">
+            <BusySpinner
+                id="spinner"
+                visible="false"/>
+        </LayoutGroup>    
+
+        <Label
+            id="noContent"
+            height="1080"
+            width="1920"
+            visible="false"
+            horizAlign="center"
+            vertAlign="center"
+            text="No Data Available"/>
+    </children>
+</component>

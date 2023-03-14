@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="SubscribeScreen" extends="SGDEXComponent" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <interface>
+       <field id="data" type="assocarray" onChange="ondataChanged"/>
+    </interface>
+
+    <script type="text/brightscript" uri="SubscribeScreen.brs" />
+    <script type="text/brightscript" uri="../../../../source/promise.brs" />
+    <script type="text/brightscript" uri="../../../../source/Utilities.brs" />
+
+    <children>
+         
+         <LayoutGroup
+            id="loginWithCode"
+            visible="false"
+            layoutDirection="horiz"
+            itemSpacings="[80]"
+            translation="[80,150]"
+            vertAlignment="custom">
+            <LayoutGroup
+                horizAlignment="center"
+                itemSpacings="[80]"
+                translation="[0,100]">
+                <MultiStyleLabel
+                    id="usingWeb"
+                    width="800"
+                    wrap="true"
+                    horizAlign = "center"/>
+            </LayoutGroup>    
+
+            <Rectangle
+                height="900"
+                width="2"/>
+
+            <LayoutGroup
+                horizAlignment="center"
+                itemSpacings="[50]"
+                translation="[0,100]">
+                <MultiStyleLabel
+                    id="usingMobile"
+                    width="800"
+                    wrap="true"
+                    horizAlign = "center"/>
+                <Poster
+                    id="qrCode"
+                    height="200"
+                    width="200"/>    
+            </LayoutGroup> 
+        </LayoutGroup>    
+
+         <RowList 
+            id="RowList"
+            translation="[0,150]"
+            itemComponentName = "PlanItem"
+            drawFocusFeedback = "true"
+            itemSize="[1920, 800]"
+            numRows="2"
+            itemSpacing="[10, 10]"
+            rowItemSpacing="[[30, 30]]"
+            showRowLabel= "[false,true]"
+            showRowCounter="false"
+            rowItemSize="[[500,800]]"
+            rowLabelOffset="[[74,20]]"
+            focusXOffset="[74]"/>    
+
+        <LayoutGroup
+            translation="[960,540]"
+            horizAlignment="center"
+            vertAlignment="center">
+            <BusySpinner
+                id="spinner"
+                visible="false"/>
+        </LayoutGroup>    
+
+         <Timer
+            id="timer"
+            repeat="false"/>
+
+         <LayoutGroup
+            translation="[960,540]"
+            horizAlignment="center"
+            vertAlignment="center">
+            <BusySpinner
+                id="spinner"
+                visible="false"/>
+        </LayoutGroup>        
+    </children>
+</component>

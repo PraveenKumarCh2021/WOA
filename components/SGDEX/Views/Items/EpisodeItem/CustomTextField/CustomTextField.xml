@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="CustomTextField" extends="Group" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <interface>
+       <field id="text" type="string" alias="textbox.text"/>
+       <field id="secureMode" type="boolean" alias="textbox.secureMode"/>
+       <field id="width" type="float" alias="poster.width" onChange="onWidthchanged"/>
+       <field id="hintText" type="string" alias="textbox.hintText"/>
+       <field id="cursorPosition" type="integer" alias="textbox.cursorPosition"/>
+    </interface>
+
+    <script type="text/brightscript" uri="CustomTextField.brs" />
+
+    <children>
+       <LayoutGroup>
+            <Poster
+                id="poster"
+                width="790"
+                height="90"
+                focusable="true"
+                uri="pkg:/images/searchbox.9.png">
+                <TextEditBox
+                    id="textbox"
+                    backgroundUri="pkg:/"
+                    translation="[35,50]"
+                    fontSize="27"/>
+            </Poster>    
+        </LayoutGroup>
+    </children>
+</component>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2018 Roku, Inc. All rights reserved. -->
+
+<component name="PlanItem" extends="Group" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <interface>
+      <field id="width" type="float" onChange="onWidthChange"  />
+      <field id="height" type="float" onChange="onHeightChange" />
+      <field id="itemContent" type="node" onChange="OnContentSet" />
+    </interface>
+
+    <script type="text/brightscript" uri="PlanItem.brs" />
+    <script type="text/brightscript" uri="pkg:/components/SGDEX/Views/utils/Utils.brs" />
+
+    <children>
+
+        <Rectangle
+            id="back"
+            color="#0D1C33">
+            <LayoutGroup
+                itemSpacings="[40,80]"
+                horizAlignment="custom">
+                <Rectangle
+                    id="titleBack"
+                    height="80"
+                    color="#152642">
+                    <Label
+                        vertAlign="center"
+                        horizAlign = "center"
+                        height = "80"
+                        id="title"/>
+                </Rectangle>
+                <MultiStyleLabel
+                    id="planTitle"
+                    horizAlign = "center"/>
+                <MultiStyleLabel
+                    translation="[40,0]"
+                    id="planfeature"
+                    height="600"
+                    wrap = "true"/>    
+            </LayoutGroup>
+
+        </Rectangle>    
+    
+    </children>
+</component>

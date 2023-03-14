@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="SearchScreen" extends="SGDEXComponent" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <interface>
+       
+    </interface>
+
+    <script type="text/brightscript" uri="SearchScreen.brs" />
+    <script type="text/brightscript" uri="../../../../source/promise.brs" />
+     <script type="text/brightscript" uri="../../../../source/Utilities.brs" />
+
+    <children>
+
+        <CustomTextField
+            id="searchField"
+            translation="[260,150]"
+            width="1400"
+            focusable="true"
+            hintText="Enter your search terms"/>
+
+         <RowList 
+            id="RowList"
+            translation="[0,300]"
+            itemComponentName = "EpisodeItem"
+            drawFocusFeedback = "true"
+            itemSize="[1920, 300]"
+            numRows="2"
+            itemSpacing="[10, 10]"
+            rowItemSpacing="[[30, 30]]"
+            showRowLabel= "[false,true]"
+            showRowCounter="false"
+            rowLabelOffset="[[74,20]]"
+            focusXOffset="[74]"/>     
+
+        <Label
+            id="noContent"
+            height="1080"
+            width="1920"
+            visible="false"
+            horizAlign="center"
+            vertAlign="center"
+            text="No Data Available"/>    
+
+        <LayoutGroup
+            translation="[960,540]"
+            horizAlignment="center"
+            vertAlignment="center">
+            <BusySpinner
+                id="spinner"
+                visible="false"/>
+        </LayoutGroup>        
+             
+    </children>
+</component>

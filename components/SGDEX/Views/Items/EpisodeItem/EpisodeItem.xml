@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2018 Roku, Inc. All rights reserved. -->
+
+<component name="EpisodeItem" extends="Group" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <interface>
+      <field id="width" type="float" onChange="onWidthChange"  />
+      <field id="height" type="float" onChange="onHeightChange" />
+      <field id="itemContent" type="node" onChange="OnContentSet" />
+    </interface>
+
+    <script type="text/brightscript" uri="EpisodeItem.brs" />
+    <script type="text/brightscript" uri="pkg:/components/SGDEX/Views/utils/Utils.brs" />
+
+    <children>
+
+        <LayoutGroup
+            itemspacings="[20]">
+            <Poster
+                loadingBitmapUri="pkg:/images/default.9.png"
+                failedBitmapUri="pkg:/images/default.9.png"
+                id="poster"
+                loadDisplayMode="limitSize">
+                <Poster
+                    id="mask"/>
+                <Label id="title"  color="0x000000">
+                    <Font role = "font" uri = "pkg:/images/fonts/arial-bold.ttf" size = "25" />
+                </Label> 
+                <DurationBar 
+                    id="durationBar" 
+                    backgroundColor="#9a9a9a" 
+                    progressColor="#FCFF00"
+                    height="6"/>
+            </Poster>    
+            <Label id="line1" horizAlign = "center">
+                <Font role = "font" uri = "pkg:/images/fonts/arial-bold.ttf" size = "25" />
+            </Label> 
+        </LayoutGroup>
+    
+    </children>
+</component>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2018 Roku, Inc. All rights reserved. -->
+
+<component name="ExtendRowList" extends="RowList" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <interface>
+        <field id="key" type="string" alwaysnotify="true" />
+    </interface>
+    <script type="text/brightscript" uri="ExtendRowList.brs" />
+
+    <children>
+
+        
+    </children>
+</component>
