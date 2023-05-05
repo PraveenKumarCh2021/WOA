@@ -92,6 +92,7 @@ end function
 
 
 Function OnMenuItemSelected(event as object)
+    print "OnMenuItemSelected ---------------------------->$$$$$$$$$$$$$$$$$$"
     index = event.GetData()
     data = event.GetRoSGNode().content.GetChild(index[0]).GetChild(index[1])
     m.global.setFields({selectedMenu :data.title})
@@ -101,7 +102,12 @@ Function OnMenuItemSelected(event as object)
     else if data.title = "Login"
         ShowLoginScreen()
     else if data.title = "Logout"
-        GetURLData(m.global.appConfig.config.api_logout,true)
+        data = {
+            title : "do you want to log out?",
+            buttons : ["YES","NO"]
+        }
+        ShowCustomdialog(data)
+        'GetURLData(m.global.appConfig.config.api_logout,true)
     else if data.title = "Search"
         m.ComponentController.addStack = data.title
         ShowSearchScreen()
@@ -243,6 +249,24 @@ function ShowSearchScreen()
     })
 End Function
 
+sub ShowCustomdialog(data as object)
+    dialog = createObject("roSGNode", "CustomDialog")
+    dialog.title = data.title
+    dialog.unobserveField("buttonClicked")
+    dialog.ObserveField("buttonNode", "onDialogButtonClicked")
+    dialog.buttons = data.buttons
+    m.top.dialog = dialog
+end sub
+
+function onDialogButtonClicked(event as object)
+    if event.getData().id = "YES"
+        GetURLData(m.global.appConfig.config.api_logout,true)
+    else if event.getData().id = "EXIT"
+        m.top.exitChannel = true
+    end if
+    m.top.dialog.close = true
+end function
+
 function onkeyEvent(key as String, press as Boolean) as Boolean
     handled = false
     if press
@@ -259,9 +283,19 @@ function onkeyEvent(key as String, press as Boolean) as Boolean
                 handled = true
             end if
         else if key = "back"
+            print "back key pressed--------------------->"
             if m.ComponentController.currentView <> invalid and m.MenuList.hasfocus()
-                m.ComponentController.currentView.close = true
-                handled = true
+                if m.ComponentController.ViewManager.ViewCount = 1
+                    data = {
+                        title : "Do you want to exit the app?",
+                        buttons : ["EXIT","CONTINUE"]
+                    }
+                    ShowCustomdialog(data)
+                    handled = true
+                else
+                    m.ComponentController.currentView.close = true
+                    handled = true
+                end if
             end if
         else if key = "OK"
             
@@ -289,7 +323,7 @@ Function GetURLData(url as string,full=false)
     }).then(sub(task)
         results = task.output
         results = ParseJSON(results)
-        if results.results <> invalid and results.results.message <> invalid and results.results.message = "Logout successfully"
+        if results <> invalid and lcase(results.status) <> lcase("FAIL") and results.results <> invalid and results.results.message <> invalid and results.results.message = "Logout successfully"
             content = CreateObject("roSGNode","ContentNode")
             content.update(m.global.appconfig.menu_apps[0],true)
             ShowHomeScreen(content)

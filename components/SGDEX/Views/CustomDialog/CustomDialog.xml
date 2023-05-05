@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<component name="CustomDialog" extends="StandardDialog" initialFocus="okButton" >
+<interface>
+    <field id="title" type="string" alias="messageTitle.text"  onChange="onTitleChanged" />
+    <field id="buttons" type="array" onChange="onButtonChanged" />
+    <field id="buttonNode" type="node" alwaysNotify="true"/>
+</interface>
+<script type="text/brightscript" uri="CustomDialog.brs" />
+
+<children>
+    <StdDlgContentArea id="contentArea">
+        <StdDlgTextItem/>
+        <Label id="messageTitle"/>
+    </StdDlgContentArea>
+    <StdDlgButtonArea id="buttonArea">
+        <FocusableLayoutGroup id="ButtonList" layoutDirection="horiz" itemSpacings="[20]">
+        </FocusableLayoutGroup>
+    </StdDlgButtonArea>
+</children>
+
+</component>
